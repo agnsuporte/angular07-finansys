@@ -20,7 +20,7 @@ export class EntryService {
   getAll(): Observable<Entry[]> {
     return this.http.get(this.apiPath).pipe(
       catchError(this.handleError),
-      map(this.jsonDataToCategories)
+      map(this.jsonDataToEntries)
     );
   }
 
@@ -63,12 +63,16 @@ export class EntryService {
   }
 
   private jsonDataToEntry(jsonData: any): Entry {
-    return jsonData as Entry;
+    return Object.assign(new Entry, jsonData);
   }
 
-  private jsonDataToCategories(jsonData: any[]): Entry[] {
+  private jsonDataToEntries(jsonData: any[]): Entry[] {
     const entries: Entry[] = [];
-    jsonData.forEach(el => entries.push(el as Entry));
+    // Retorna um objeto Entry.
+    jsonData.forEach(el => {
+      const entry = Object.assign(new Entry, el);
+      entries.push(entry);
+    });
     return entries;
   }
 

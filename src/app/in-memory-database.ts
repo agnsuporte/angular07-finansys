@@ -1,6 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { Category } from './pages/categories/shared/category.module';
+import { Entry } from './pages/entries/shared/entry.module';
 
 export class InMemoryDatabase implements InMemoryDbService {
 
@@ -16,7 +17,66 @@ export class InMemoryDatabase implements InMemoryDbService {
       {id: 4, name: 'Transporte', description: 'Motinha cheia de gás'},
       {id: 5, name: 'Moradia', description: 'Minha casa minha vida'}
     ];
-    return {categories};
+
+    const entries: Entry[] = [
+      {
+        id: 1,
+        name: 'Gasolina',
+        categoryId: categories[0].id,
+        category: categories[0],
+        paid: true,
+        date: '27/11/2018',
+        amount: '55,69',
+        type: 'expense',
+        description: 'Saidinha com a patroa'
+      } as Entry,
+      {
+        id: 2,
+        name: 'Pizzaria',
+        categoryId: categories[0].id,
+        category: categories[0],
+        paid: true,
+        date: '27/11/2018',
+        amount: '105,90',
+        type: 'expense',
+        description: 'Lanche com a patroa'
+      } as Entry,
+      {
+        id: 3,
+        name: 'Apto',
+        categoryId: categories[4].id,
+        category: categories[4],
+        paid: true,
+        date: '30/11/2018',
+        amount: '579,87',
+        type: 'expense',
+        description: 'Prestação Financiamento'
+      } as Entry,
+      {
+        id: 4,
+        name: 'Motinha Manhosa',
+        categoryId: categories[3].id,
+        category: categories[3],
+        paid: true,
+        date: '05/12/2018',
+        amount: '423,25',
+        type: 'revenue',
+        description: 'Serviço de moto-taxi'
+      } as Entry,
+      {
+        id: 5,
+        name: 'Dentista',
+        categoryId: categories[1].id,
+        category: categories[1],
+        paid: false,
+        date: '06/12/2018',
+        amount: '150,25',
+        type: 'expense',
+        description: 'Limpeza!'
+      } as Entry,
+    ];
+
+    return {categories, entries};
   }
 
 }
