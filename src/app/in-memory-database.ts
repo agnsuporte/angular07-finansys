@@ -46,7 +46,7 @@ export class InMemoryDatabase implements InMemoryDbService {
         name: 'Apto',
         categoryId: categories[4].id,
         category: categories[4],
-        paid: true,
+        paid: false,
         date: '30/11/2018',
         amount: '579,87',
         type: 'expense',
@@ -74,6 +74,17 @@ export class InMemoryDatabase implements InMemoryDbService {
         type: 'expense',
         description: 'Limpeza!'
       } as Entry,
+      {
+        id: 6,
+        name: 'Empresa',
+        categoryId: categories[2].id,
+        category: categories[2],
+        paid: false,
+        date: '08/12/2018',
+        amount: '1500,25',
+        type: 'revenue',
+        description: 'Recebimento de Proventos'
+      } as Entry
     ];
 
     return {categories, entries};
