@@ -14,13 +14,13 @@ export class Entry {
     public category?: Category
   ) {}
 
-  static type = {
-    expense: 'Despesa',
-    revenue: 'Receita'
-  };
-
   get paidText(): string {
     return this.paid ? 'Pago' : 'Pendente';
   }
+
+  static types = {
+    expense: 'Despesa',
+    revenue: 'Receita'
+  };
 
 }
