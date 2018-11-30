@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
+    // Modulos compartilhados
     CommonModule,
     ReactiveFormsModule
   ]
