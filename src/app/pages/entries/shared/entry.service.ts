@@ -47,14 +47,14 @@ export class EntryService extends BaseResourceService<Entry> {
   // METODOS protected
 
   protected jsonDataToResource(jsonData: any): Entry {
-    return Object.assign(new Entry, jsonData);
+    return Entry.fromJson(jsonData);
   }
 
   protected jsonDataToResources(jsonData: any[]): Entry[] {
     const entries: Entry[] = [];
     // Retorna um objeto Entry.
     jsonData.forEach(el => {
-      const entry = Object.assign(new Entry, el);
+      const entry = Entry.fromJson(el);
       entries.push(entry);
     });
     return entries;
