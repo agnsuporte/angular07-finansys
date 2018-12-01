@@ -83,17 +83,6 @@
       </div>
 
       <div class="form-row">
-        <!-- PAGO -->
-        <div class="form-group col-md-2">
-          <label for="paid">Pago</label>
-          <div class="btn-group">
-            <label (click)="entryForm.get('paid').setValue(true)" [class.active]="entryForm.get('paid').value === true" class="btn btn-outline-info" >Pago</label>
-            <label (click)="entryForm.get('paid').setValue(false)" [class.active]="entryForm.get('paid').value === false" class="btn btn-outline-info" >Pendente</label>
-          </div>
-          <div class="text-danger" *ngIf="entryForm.get('paid').invalid && entryForm.get('paid').touched">
-            <div *ngIf="!!entryForm.get('paid').errors.required">Dado obrigatório</div>
-          </div>
-        </div>
 
         <!-- CATEGORIA ID -->
         <div class="form-group col-md-3">
@@ -112,16 +101,28 @@
           <input type="text" class="form-control" id="description" formControlName="description">
         </div>
 
+        <!-- PAGO -->
+        <div class="form-group col-md-2">
+          <label for="paid">Pago</label>
+          <div class="btn-group">
+            <label (click)="entryForm.get('paid').setValue(true)" [class.active]="entryForm.get('paid').value === true" class="btn btn-outline-info" >Pago</label>
+            <label (click)="entryForm.get('paid').setValue(false)" [class.active]="entryForm.get('paid').value === false" class="btn btn-outline-info" >Pendente</label>
+          </div>
+          <div class="text-danger" *ngIf="entryForm.get('paid').invalid && entryForm.get('paid').touched">
+            <div *ngIf="!!entryForm.get('paid').errors.required">Dado obrigatório</div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <pre>{{entryForm.value | json}}</pre>
 
   </div>
 
   <button type="submit" class="btn btn-primary btn-lg float-right mt-3" [disabled]="submittingForm || entryForm.invalid">Salvar</button>
 
 </form>
+
+<pre>{{entryForm.value | json}}</pre>
 
 
 
