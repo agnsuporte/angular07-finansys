@@ -17,7 +17,7 @@ export abstract class BaseResourceListComponent<T extends BaseResourceModel> imp
     );
   }
 
-  deleteEntry(resource: T) {
+  deleteResource(resource: T) {
     const conf = confirm('Deseja excluir este item?');
     if (conf) {
       this.resourceService.delete(resource.id).subscribe(
