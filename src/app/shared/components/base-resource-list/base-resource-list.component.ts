@@ -3,12 +3,11 @@ import { OnInit } from '@angular/core';
 import { BaseResourceModel } from '../../models/base-resource.model';
 import { BaseResourceService } from '../../services/base-resource.service';
 
-
 export abstract class BaseResourceListComponent<T extends BaseResourceModel> implements OnInit {
 
   resources: T[] = [];
 
-  constructor(private resourceService: BaseResourceService<T>) { }
+  constructor(protected resourceService: BaseResourceService<T>) { }
 
   ngOnInit() {
     this.resourceService.getAll().subscribe(
