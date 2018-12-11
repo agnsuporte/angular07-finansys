@@ -9,7 +9,7 @@ export class PageHeaderComponent implements OnInit {
 
   @Input('page-title') pageTitle: string;
   @Input('button-class') buttonClass: string;
-  @Input("button-text") buttonText: string;
+  @Input('button-text') buttonText: string;
   @Input('button-link') buttonLink: string;
 
   constructor() { }
